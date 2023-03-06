@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Favorite } from 'src/app/Models/favorite';
 import { QandA } from 'src/app/Models/qand-a';
 import { QandAService } from 'src/app/Services/qand-a.service';
 
@@ -10,7 +11,7 @@ import { QandAService } from 'src/app/Services/qand-a.service';
 
 
 export class QuestionsComponent implements OnInit {
-Questions: QandA[] = [];
+  Questions: QandA[] = [];
 
   constructor(private questionService: QandAService) { }
 
@@ -22,7 +23,29 @@ Questions: QandA[] = [];
   getQuestions():void {
   this.questionService.getQuestions().subscribe((response:QandA[]) => {
       console.log(response);
-      this.Questions=response
+      this.Questions = response;
     });
+  }
+
+  addFavorite(questionid:number):void {
+    //Replace 1 with Userid
+    this.questionService.addFavorite(questionid, 1).subscribe((response:Favorite) => {
+      console.log(response);
+
+    });
+  }
+
+  Hide: boolean = false;
+  ToggleForm(): void{
+    this.Hide = !this.Hide;
+  }
+
+  AddQuesiton(newQuestion: QandA){
+    this.Questions.push(newQuestion);
+    this.questionService.addQuestions(newQuestion.question, newQuestion.answer).subscribe((response: QandA) => {
+      console.log(response);
+      this.getQuestions();
+    });
+    this.ToggleForm();
   }
 }

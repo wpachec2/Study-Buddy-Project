@@ -2,7 +2,7 @@
 
 
 <div *ngFor="let q of Questions">
-    <!-- <button (click)="addToDo()">🌟</button> -->
+    <button (click)="addFavorite(q.questionid)">🌟</button>
     <div onclick="" class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -16,16 +16,8 @@
       </div> 
     </div>
 
-    <div class="flip-card">
-      <p>QUESTION HERE</p>
-    </div>
-
-    <div class="scene scene--card">
-      <div class="card">
-        <div class="card__face card__face--front">front</div>
-        <div class="card__face card__face--back">back</div>
-      </div>
-    </div>
-    <p>Click card to flip.</p>
-
+    <br />
+    <button (click)="ToggleForm()">New Question:</button>
+    
+<app-answer-form *ngIf="Hide" (QuestionCreated)="AddQuesiton($event)"></app-answer-form>
     

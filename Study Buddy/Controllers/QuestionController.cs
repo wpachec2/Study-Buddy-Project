@@ -55,7 +55,12 @@ namespace Study_Buddy.Controllers
             dbcontext.SaveChanges();
         }
 
-
-
+        [HttpGet("getFavorites")]
+        public List<QandA> getFavorites(int userId)
+        {
+            List<Favorite> favList = new List<Favorite>();
+            favList = dbcontext.Favorites.Where(f => f.Userid == userId).ToList();
+            return dbcontext.QandAs.Where(q => favList.Any(x => x.Questionid == (int)q.Questionid)).ToList();
+        }
     }
 }

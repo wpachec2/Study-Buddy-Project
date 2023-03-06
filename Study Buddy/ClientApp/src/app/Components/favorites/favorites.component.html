@@ -1,4 +1,10 @@
-<p>favorites works!</p>
+<h2>Favorites:</h2>
+
+<div *ngFor="let f of Favorites">
+    <p>{{ f.question }}</p>
+    <p>{{ f.answer }}</p>
+    <p>{{ f.questionid }}</p>
+</div>
 
 
 
