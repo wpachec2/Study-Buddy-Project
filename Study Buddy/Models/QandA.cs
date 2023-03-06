@@ -10,6 +10,6 @@ public partial class QandA
     public string? Question { get; set; }
 
     public string? Answer { get; set; }
-
+    [System.Text.Json.Serialization.JsonIgnore]
     public virtual ICollection<Favorite> Favorites { get; } = new List<Favorite>();
 }

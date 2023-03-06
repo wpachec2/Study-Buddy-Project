@@ -60,7 +60,13 @@ namespace Study_Buddy.Controllers
         {
             List<Favorite> favList = new List<Favorite>();
             favList = dbcontext.Favorites.Where(f => f.Userid == userId).ToList();
-            return dbcontext.QandAs.Where(q => favList.Any(x => x.Questionid == (int)q.Questionid)).ToList();
+            bool idExist = favList.Any();
+            List<QandA> newQs = new List<QandA>();
+            foreach (Favorite f in favList)
+            {
+                newQs.Add(dbcontext.QandAs.FirstOrDefault(q => q.Questionid == f.Questionid));
+            }
+            return newQs;
         }
     }
 }

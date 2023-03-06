@@ -24,7 +24,7 @@ export class QandAService {
   }
 
   getFavorite(userid: number):Observable<QandA[]>{
-    return this.http.get<QandA[]>(`${this.baseUrl}api/Question/getFavorites?userId=${userid}`, {});
+    return this.http.get<QandA[]>(`${this.baseUrl}api/Question/getFavorites?userId=${userid}`);
   }
 }
 
