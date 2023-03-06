@@ -7,9 +7,10 @@ import { QandAService } from 'src/app/Services/qand-a.service';
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css']
 })
-export class QuestionsComponent implements OnInit {
 
-  Questions: QandA[] = [];
+
+export class QuestionsComponent implements OnInit {
+Questions: QandA[] = [];
 
   constructor(private questionService: QandAService) { }
 

@@ -30,7 +30,8 @@ import { FavoritesComponent } from './Components/favorites/favorites.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: '/Question', component: QuestionsComponent },
+      { path: 'Question', component: QuestionsComponent },
+      { path: 'Favorites', component: FavoritesComponent },
     ])
   ],
   providers: [],

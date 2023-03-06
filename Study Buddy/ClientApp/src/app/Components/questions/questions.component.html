@@ -1,5 +1,31 @@
 <p>questions works!</p>
 
+
 <div *ngFor="let q of Questions">
-    <p>{{q.question}}</p>
-</div>
+    <!-- <button (click)="addToDo()">🌟</button> -->
+    <div onclick="" class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <p>{{q.questionid}}</p>
+            <p>{{q.question}}</p>
+          </div>
+          <div class="flip-card-back">
+            <p>{{q.answer}}</p>
+          </div>
+        </div>
+      </div> 
+    </div>
+
+    <div class="flip-card">
+      <p>QUESTION HERE</p>
+    </div>
+
+    <div class="scene scene--card">
+      <div class="card">
+        <div class="card__face card__face--front">front</div>
+        <div class="card__face card__face--back">back</div>
+      </div>
+    </div>
+    <p>Click card to flip.</p>
+
+    
