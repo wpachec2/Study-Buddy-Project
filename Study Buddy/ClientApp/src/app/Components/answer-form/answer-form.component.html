@@ -1,8 +1,10 @@
-<h2>New Question:</h2>
-<p>Question:</p>
+<h2 style="color: white;">New Question:</h2>
+<b style="color: white;">Question: </b>
+<br>
 <input type="text" [(ngModel)]="newQuestion.question" />
-
-<p>Answer:</p>
+<br>
+<b style="color: white;">Answer:  </b>
+<br>
 <input type="text" [(ngModel)]="newQuestion.answer" />
 <br />
 <button (click)="CreatePost()">Add Question</button>
