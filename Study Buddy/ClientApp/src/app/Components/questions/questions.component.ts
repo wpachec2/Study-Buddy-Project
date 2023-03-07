@@ -49,5 +49,22 @@ export class QuestionsComponent implements OnInit {
     this.ToggleForm();
   }
 
+  filter: string = "";
+  
+  getFiltered(): QandA[]{
+    return this.Questions.filter((t: QandA) => t.question.includes(this.filter));
+  }
+
+  getCorrectIndex(index: number): number{
+    //index is filtered, we need the original
+    let qs: QandA = this.getFiltered()[index];
+
+    return this.Questions.findIndex((t: QandA) => t.question == qs.question && t.answer == qs.answer);
+  }
+
+  RemoveQuestion(index: number): void{
+    this.Questions.splice(this.getCorrectIndex(index), 1);
+  }
+
   userid: number = 0;
 }

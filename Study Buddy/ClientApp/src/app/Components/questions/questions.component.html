@@ -1,24 +1,45 @@
-<p>questions works!</p>
-
-<button (click)="ToggleForm()">New Question:</button>
-<app-answer-form *ngIf="Hide" (QuestionCreated)="AddQuesiton($event)"></app-answer-form>
-<br />
-
-<p>Enter UserId to add Favorites:/p>
-<input type="number" [(ngModel)]="userid" />
-
-<div *ngFor="let q of Questions">
-  <button (click)="addFavorite(q.questionid)">🌟</button>
-  <div onclick="" class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <p>{{q.questionid}}</p>
-        <p>{{q.question}}</p>
-      </div>
-      <div class="flip-card-back">
-        <p>{{q.answer}}</p>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center text-info">Questions</h1>
+  </div>
+  <div class="row">
+    <div *ngFor="let q of Questions; index as i" class="col-4" class="text-center">
+      <div onclick="" class="flip-card">
+        <!-- class="flip-card col-6 col-md-3 p-0 offset-md-3" -->
+      <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <p>{{q.questionid}}. {{q.question}}</p>
+          </div>
+          <div class="flip-card-back">
+            <p>{{q.answer}}</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div> 
+  </div>
+
+  <div class="col-sm-4">
+    <button (click)="ToggleForm()">New Question:</button>
+    <app-answer-form *ngIf="Hide" (QuestionCreated)="AddQuesiton($event)"></app-answer-form>
+    <br />
+    
+    <p>Enter UserId to add Favorites:</p>
+    <input type="number" [(ngModel)]="userid" />
+    <div *ngFor="let q of Questions; index as i">
+      <button (click)="addFavorite(q.questionid)">🌟</button>
+      <div onclick="" class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <p>{{q.questionid}}. {{q.question}}</p>
+          </div>
+          <div class="flip-card-back">
+            <p>{{q.answer}}</p>
+          </div>
+        </div>
+      </div> 
+      <button (click)="RemoveQuestion(i)">x</button>
+    </div>
+  </div>
 </div>
+
     

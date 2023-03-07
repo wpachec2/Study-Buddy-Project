@@ -5,11 +5,19 @@
 <button (click)="getFavorites()">Submit</button>
 
 <div *ngFor="let f of Favorites; index as i">
-    <p>{{ f.question }}</p>
-    <p>{{ f.answer }}</p>
-    <p>{{ f.questionid }}</p>
     <button (click)="RemoveQuestion(i)">x</button>
-</div>
+       <div onclick="" class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <p>{{ f.question }}</p>
+            <p>{{ f.questionid }}</p>
+        </div>
+        <div class="flip-card-back">
+            <p>{{ f.answer }}</p>
+        </div>
+      </div>
+    </div> 
+  </div>
 
 
 
