@@ -29,7 +29,7 @@ export class QuestionsComponent implements OnInit {
 
   addFavorite(questionid:number):void {
     //Replace 1 with Userid
-    this.questionService.addFavorite(questionid, 1).subscribe((response:Favorite) => {
+    this.questionService.addFavorite(questionid, this.userid).subscribe((response:Favorite) => {
       console.log(response);
 
     });
@@ -48,4 +48,6 @@ export class QuestionsComponent implements OnInit {
     });
     this.ToggleForm();
   }
+
+  userid: number = 0;
 }

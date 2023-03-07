@@ -18,9 +18,28 @@ export class FavoritesComponent implements OnInit {
 
   getFavorites():void {
     //Swap 1 with UserId
-    this.questionService.getFavorite(1).subscribe((response:QandA[]) => {
+    this.questionService.getFavorite(this.userid).subscribe((response:QandA[]) => {
         console.log(response);
         this.Favorites = response;
-      });
-    }
+    });
+  }
+
+  filter: string = "";
+  
+  getFiltered(): QandA[]{
+    return this.Favorites.filter((t: QandA) => t.question.includes(this.filter));
+  }
+
+  getCorrectIndex(index: number): number{
+    //index is filtered, we need the original
+    let qs: QandA = this.getFiltered()[index];
+
+    return this.Favorites.findIndex((t: QandA) => t.question == qs.question && t.answer == qs.answer);
+  }
+
+  RemoveQuestion(index: number): void{
+    this.Favorites.splice(this.getCorrectIndex(index), 1);
+  }
+
+  userid: number = 0;
 }

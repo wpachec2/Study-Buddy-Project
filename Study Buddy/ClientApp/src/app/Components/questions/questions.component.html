@@ -1,23 +1,24 @@
 <p>questions works!</p>
 
+<button (click)="ToggleForm()">New Question:</button>
+<app-answer-form *ngIf="Hide" (QuestionCreated)="AddQuesiton($event)"></app-answer-form>
+<br />
+
+<p>Enter UserId to add Favorites:/p>
+<input type="number" [(ngModel)]="userid" />
 
 <div *ngFor="let q of Questions">
-    <button (click)="addFavorite(q.questionid)">🌟</button>
-    <div onclick="" class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <p>{{q.questionid}}</p>
-            <p>{{q.question}}</p>
-          </div>
-          <div class="flip-card-back">
-            <p>{{q.answer}}</p>
-          </div>
-        </div>
-      </div> 
+  <button (click)="addFavorite(q.questionid)">🌟</button>
+  <div onclick="" class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <p>{{q.questionid}}</p>
+        <p>{{q.question}}</p>
+      </div>
+      <div class="flip-card-back">
+        <p>{{q.answer}}</p>
+      </div>
     </div>
-
-    <br />
-    <button (click)="ToggleForm()">New Question:</button>
-    
-<app-answer-form *ngIf="Hide" (QuestionCreated)="AddQuesiton($event)"></app-answer-form>
+  </div> 
+</div>
     

@@ -26,8 +26,6 @@ export class QandAService {
   getFavorite(userid: number):Observable<QandA[]>{
     return this.http.get<QandA[]>(`${this.baseUrl}api/Question/getFavorites?userId=${userid}`);
   }
-}
 
-// castVote(id:number):Observable<Vote>{
-//   return this.http.put<Vote>(`${this.baseUrl}api/Vote/addVote?Id=${id}`, {});
-// }
+ 
+}

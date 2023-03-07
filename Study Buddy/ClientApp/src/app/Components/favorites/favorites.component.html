@@ -1,9 +1,14 @@
 <h2>Favorites:</h2>
 
-<div *ngFor="let f of Favorites">
+<p>Enter UserId to view Favorites:</p>
+<input type="number" [(ngModel)]="userid" />
+<button (click)="getFavorites()">Submit</button>
+
+<div *ngFor="let f of Favorites; index as i">
     <p>{{ f.question }}</p>
     <p>{{ f.answer }}</p>
     <p>{{ f.questionid }}</p>
+    <button (click)="RemoveQuestion(i)">x</button>
 </div>
 
 
