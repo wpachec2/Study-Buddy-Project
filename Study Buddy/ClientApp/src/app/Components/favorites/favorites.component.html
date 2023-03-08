@@ -8,7 +8,7 @@
   
       <div *ngFor="let f of Favorites; index as i" class="col-sm-4 mb-4">
         <div>
-          <div class="card card-flip h-100">
+          <div class="card card-flip h-100 bg-transparent">
             <div class="card-front">
               <div class="card-body">
                 <button (click)="deleteFavorite(f.questionid)">x</button>

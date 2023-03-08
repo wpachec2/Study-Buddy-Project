@@ -31,8 +31,8 @@ namespace Study_Buddy.Controllers
         [HttpDelete("deleteFavorite")]
         public void deleteFavorite(int questionId, int userId)
         {
-            Favorite F = dbcontext.Favorites.FirstOrDefault(q => q.Questionid == questionId && q.Userid == userId);
-            dbcontext.Favorites.Remove(F);
+            Favorite f = dbcontext.Favorites.FirstOrDefault(q => q.Questionid == questionId && q.Userid == userId);
+            dbcontext.Favorites.Remove(f);
             dbcontext.SaveChanges();
         }
 
@@ -53,14 +53,14 @@ namespace Study_Buddy.Controllers
         public void deleteQuestion(int questionId)
         {
             
-            QandA Q = dbcontext.QandAs.FirstOrDefault(a => a.Questionid == questionId);
+            QandA q = dbcontext.QandAs.FirstOrDefault(a => a.Questionid == questionId);
             List <Favorite> favs = dbcontext.Favorites.Where(f => f.Questionid == questionId).ToList();
-            foreach(Favorite F in favs)
+            foreach(Favorite f in favs)
             {
-                dbcontext.Favorites.Remove(F);
+                dbcontext.Favorites.Remove(f);
             }        
             
-            dbcontext.QandAs.Remove(Q);
+            dbcontext.QandAs.Remove(q);
             dbcontext.SaveChanges();
 
         }

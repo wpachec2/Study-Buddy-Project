@@ -39,16 +39,16 @@ export class FavoritesComponent implements OnInit {
 
     return this.Favorites.findIndex((t: QandA) => t.question == qs.question && t.answer == qs.answer);
   }
-  
+
+  RemoveQuestion(index: number): void{
+    this.Favorites.splice(this.getCorrectIndex(index), 1);
+  }
+
   deleteFavorite(questionid:number):void{
     this.questionService.deleteFavorite(questionid,this.userid).subscribe((response:Favorite)=>{
       console.log(response);
       this.getFavorites()
     })
-  }
-
-  RemoveQuestion(index: number): void{
-    this.Favorites.splice(this.getCorrectIndex(index), 1);
   }
 
   userid: number = 0;

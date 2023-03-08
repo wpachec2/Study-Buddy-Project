@@ -11,12 +11,12 @@
 
     <div *ngFor="let q of Questions; index as i" class="col-sm-4 mb-4">
       <div>
-        <div class="card card-flip h-100">
+        <div class="card card-flip h-100 bg-transparent">
           <div class="card-front">
             <div class="card-body">
               <button (click)="RemoveQuestion(i,q.questionid)">x</button>
               <i class="fa fa-search fa-5x float-right"></i>
-              <h3 class="card-title">Question: {{ q.questionid }}</h3>
+              <h3 class="card-title">Question:</h3>
               <p class="card-text">
                 {{q.question}}
               </p>
@@ -25,7 +25,7 @@
           </div>
           <div class="card-back bg-white">
             <div class="card-body">
-              <h3 class="card-title">Answer</h3>
+              <h3 class="card-title">Answer:</h3>
               <p class="card-text">
                 {{q.answer}}
               </p>

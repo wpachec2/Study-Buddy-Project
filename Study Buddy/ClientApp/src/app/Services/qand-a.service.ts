@@ -27,9 +27,10 @@ export class QandAService {
     return this.http.get<QandA[]>(`${this.baseUrl}api/Question/getFavorites?userId=${userid}`);
   }
 
- deleteFavorite(questionid: number,userId:number):Observable<Favorite>{
+ deleteFavorite(questionid: number, userId: number):Observable<Favorite>{
   return this.http.delete<Favorite>(`${this.baseUrl}api/Question/deleteFavorite?questionId=${questionid}&Userid=${userId}`,{});
  }
+
  deleteQuestion(questionid: number):Observable<QandA>{
   return this.http.delete<QandA>(`${this.baseUrl}api/Question/deleteQuestion?questionId=${questionid}`,{});
  }
