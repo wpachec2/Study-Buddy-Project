@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Favorite } from 'src/app/Models/favorite';
 import { QandA } from 'src/app/Models/qand-a';
 import { QandAService } from 'src/app/Services/qand-a.service';
 
@@ -9,6 +10,8 @@ import { QandAService } from 'src/app/Services/qand-a.service';
 })
 export class FavoritesComponent implements OnInit {
   Favorites: QandA[] = [];
+  FavQ : Favorite[] = [];
+
 
   constructor(private questionService: QandAService) { }
 
@@ -35,6 +38,13 @@ export class FavoritesComponent implements OnInit {
     let qs: QandA = this.getFiltered()[index];
 
     return this.Favorites.findIndex((t: QandA) => t.question == qs.question && t.answer == qs.answer);
+  }
+  
+  deleteFavorite(questionid:number):void{
+    this.questionService.deleteFavorite(questionid,this.userid).subscribe((response:Favorite)=>{
+      console.log(response);
+      this.getFavorites()
+    })
   }
 
   RemoveQuestion(index: number): void{

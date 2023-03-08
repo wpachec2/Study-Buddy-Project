@@ -62,8 +62,13 @@ export class QuestionsComponent implements OnInit {
     return this.Questions.findIndex((t: QandA) => t.question == qs.question && t.answer == qs.answer);
   }
 
-  RemoveQuestion(index: number): void{
+  RemoveQuestion(index: number,id :number): void{
     this.Questions.splice(this.getCorrectIndex(index), 1);
+    this.questionService.deleteQuestion(id).subscribe((response:QandA)=>{
+      console.log(response);
+      this.getQuestions();
+    
+    })
   }
 
   userid: number = 0;
