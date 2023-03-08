@@ -1,28 +1,7 @@
-<!-- <h2>Favorites:</h2>
-
-<p>Enter UserId to view Favorites:</p>
-<input type="number" [(ngModel)]="userid" />
-<button (click)="getFavorites()">Submit</button>
-
-<div *ngFor="let f of Favorites; index as i">
-    <button (click)="RemoveQuestion(i)">x</button>
-       <div onclick="" class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-            <p>{{ f.question }}</p>
-            <p>{{ f.questionid }}</p>
-        </div>
-        <div class="flip-card-back">
-            <p>{{ f.answer }}</p>
-        </div>
-      </div>
-    </div> 
-  </div> -->
-
 
   <h1 style="color: white;" class="text-center">Favorites</h1>
   <div class="container">
-    <p>Enter UserId to view Favorites:</p>
+    <p style="color: white;">Enter UserId to view Favorites:</p>
     <input type="number" [(ngModel)]="userid" />
     <button (click)="getFavorites()">Submit</button>
     <div class="row" >
